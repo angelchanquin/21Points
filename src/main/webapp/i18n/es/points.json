@@ -1,0 +1,27 @@
+{
+    "21PointsApp": {
+        "points" : {
+            "home": {
+                "title": "Registro",
+                "createLabel": "Crear nuevo registro",
+                "createOrEditLabel": "Crear o editar registro",
+                "search": "Buscar registros"
+            },
+            "created": "Un nuevo registro ha sido creado con el identificador {{ param }}",
+            "updated": "Un registro ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un registro ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar este registro {{ id }}?"
+            },
+            "detail": {
+                "title": "Registros"
+            },
+            "date": "Fecha",
+            "exercise": "¿Has hecho Ejercicio?",
+            "meals": "¿Has comido bien?",
+            "alcohol": "¿Has consumido alcohol?",
+            "notes": "Notas",
+            "user": "Usuario"
+        }
+    }
+}
