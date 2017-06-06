@@ -32,22 +32,22 @@
         <div class="form-group">
             <label class="control-label" data-translate="21PointsApp.points.exercise" for="field_exercise">Exercise</label>
             <div class="btn-group" id="field_exercise">
-                <label class="btn btn-primary" ng-model="vm.points.exercise" uib-btn-radio="'1'" ng-class="{'active': vm.points.exercise}">Yes</label>
-                <label class="btn btn-primary" ng-model="vm.points.exercise" uib-btn-radio="'0'" ng-class="{'active': !vm.points.exercise}">No</label>
+                <label class="btn btn-primary" ng-model="vm.points.exercise" uib-btn-radio="'1'" ng-class="{'active': vm.points.exercise  == 1}">Yes</label>
+                <label class="btn btn-primary" ng-model="vm.points.exercise" uib-btn-radio="'0'" ng-class="{'active': vm.points.exercise  == 0}">No</label>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="21PointsApp.points.meals" for="field_meals">Meals</label>
             <div class="btn-group" id="field_meals">
-                <label class="btn btn-primary" ng-model="vm.points.meals" uib-btn-radio="'1'" ng-class="{'active': vm.points.meals}">Yes</label>
-                <label class="btn btn-primary" ng-model="vm.points.meals" uib-btn-radio="'0'" ng-class="{'active': !vm.points.meals}">No</label>
+                <label class="btn btn-primary" ng-model="vm.points.meals" uib-btn-radio="'1'" ng-class="{'active': vm.points.meals == 1}">Yes</label>
+                <label class="btn btn-primary" ng-model="vm.points.meals" uib-btn-radio="'0'" ng-class="{'active': vm.points.meals == 0}">No</label>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="21PointsApp.points.alcohol" for="field_alcohol">Alcohol</label>
             <div class="btn-group" id="field_alcohol">
-                <label class="btn btn-primary" ng-model="vm.points.alcohol" uib-btn-radio="'1'" ng-class="{'active': vm.points.alcohol}">Yes</label>
-                <label class="btn btn-primary" ng-model="vm.points.alcohol" uib-btn-radio="'0'" ng-class="{'active': !vm.points.alcohol}">No</label>
+                <label class="btn btn-primary" ng-model="vm.points.alcohol" uib-btn-radio="'1'" ng-class="{'active': vm.points.alcohol  == 1}">Yes</label>
+                <label class="btn btn-primary" ng-model="vm.points.alcohol" uib-btn-radio="'0'" ng-class="{'active': vm.points.alcohol  == 0}">No</label>
             </div>
         </div>
         <div class="form-group">

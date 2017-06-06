@@ -2,15 +2,18 @@ package com.jhipster.health.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.jhipster.health.domain.Points;
-
 import com.jhipster.health.repository.PointsRepository;
+import com.jhipster.health.repository.UserRepository;
 import com.jhipster.health.repository.search.PointsSearchRepository;
+import com.jhipster.health.security.AuthoritiesConstants;
+import com.jhipster.health.security.SecurityUtils;
 import com.jhipster.health.web.rest.util.HeaderUtil;
 import com.jhipster.health.web.rest.util.PaginationUtil;
-import io.swagger.annotations.ApiParam;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -23,10 +26,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 
 /**
  * REST controller for managing Points.
@@ -42,6 +43,9 @@ public class PointsResource {
     private final PointsRepository pointsRepository;
 
     private final PointsSearchRepository pointsSearchRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public PointsResource(PointsRepository pointsRepository, PointsSearchRepository pointsSearchRepository) {
         this.pointsRepository = pointsRepository;
@@ -61,6 +65,11 @@ public class PointsResource {
         log.debug("REST request to save Points : {}", points);
         if (points.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new points cannot already have an ID")).body(null);
+        }
+
+        if (!SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) {
+            log.debug("Not user passed in, using current user {}", SecurityUtils.getCurrentUserLogin());
+            points.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
         }
         Points result = pointsRepository.save(points);
         pointsSearchRepository.save(result);
@@ -102,7 +111,12 @@ public class PointsResource {
     @Timed
     public ResponseEntity<List<Points>> getAllPoints(@ApiParam Pageable pageable) {
         log.debug("REST request to get a page of Points");
-        Page<Points> page = pointsRepository.findAll(pageable);
+        Page<Points> page;
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) {
+            page = pointsRepository.findAllByOrderByDateDesc(pageable);
+        } else {
+            page = pointsRepository.findByUserIsCurrentUser(pageable);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/points");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
