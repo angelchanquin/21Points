@@ -3,11 +3,11 @@
 
     angular
         .module('21PointsApp')
-        .controller('Blood_pressureDetailController', Blood_pressureDetailController);
+        .controller('BloodPressureDetailController', BloodPressureDetailController);
 
-    Blood_pressureDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Blood_pressure', 'User'];
+    BloodPressureDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'BloodPressure', 'User'];
 
-    function Blood_pressureDetailController($scope, $rootScope, $stateParams, previousState, entity, Blood_pressure, User) {
+    function BloodPressureDetailController($scope, $rootScope, $stateParams, previousState, entity, BloodPressure, User) {
         var vm = this;
 
         vm.bloodPressure = entity;
