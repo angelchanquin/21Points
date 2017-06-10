@@ -14,7 +14,7 @@
             url: '/blood-pressure',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: '21PointsApp.blood_pressure.home.title'
+                pageTitle: '21PointsApp.bloodPressure.home.title'
             },
             views: {
                 'content@': {
@@ -25,7 +25,7 @@
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('blood_pressure');
+                    $translatePartialLoader.addPart('bloodPressure');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -36,7 +36,7 @@
             url: '/blood-pressure/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: '21PointsApp.blood_pressure.detail.title'
+                pageTitle: '21PointsApp.bloodPressure.detail.title'
             },
             views: {
                 'content@': {
@@ -47,7 +47,7 @@
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('blood_pressure');
+                    $translatePartialLoader.addPart('bloodPressure');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'BloodPressure', function($stateParams, BloodPressure) {

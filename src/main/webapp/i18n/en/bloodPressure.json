@@ -1,6 +1,6 @@
 {
     "21PointsApp": {
-        "blood_pressure" : {
+        "bloodPressure" : {
             "home": {
                 "title": "Blood Pressures",
                 "createLabel": "Create a new Blood Pressure",

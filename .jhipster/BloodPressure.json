@@ -7,7 +7,7 @@
             "relationshipType": "many-to-one",
             "otherEntityField": "login",
             "ownerSide": true,
-            "otherEntityRelationshipName": "blood_pressure"
+            "otherEntityRelationshipName": "bloodPressure"
         }
     ],
     "fields": [
@@ -36,6 +36,6 @@
     "changelogDate": "20170606170954",
     "dto": "no",
     "service": "no",
-    "entityTableName": "blood_Pressure",
+    "entityTableName": "blood_pressure",
     "pagination": "infinite-scroll"
 }

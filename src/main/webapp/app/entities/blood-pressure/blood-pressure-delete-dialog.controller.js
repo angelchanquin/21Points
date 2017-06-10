@@ -10,7 +10,7 @@
     function BloodPressureDeleteController($uibModalInstance, entity, BloodPressure) {
         var vm = this;
 
-        vm.blood_pressure = entity;
+        vm.bloodPressure = entity;
         vm.clear = clear;
         vm.confirmDelete = confirmDelete;
 

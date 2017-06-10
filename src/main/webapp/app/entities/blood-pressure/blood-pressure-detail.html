@@ -1,24 +1,24 @@
 
 <div>
-    <h2><span data-translate="21PointsApp.blood_pressure.detail.title">Blood Pressure</span> {{vm.blood_pressure.id}}</h2>
+    <h2><span data-translate="21PointsApp.bloodPressure.detail.title">Blood Pressure</span> {{vm.bloodPressure.id}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
-        <dt><span data-translate="21PointsApp.blood_pressure.date">Date</span></dt>
+        <dt><span data-translate="21PointsApp.bloodPressure.date">Date</span></dt>
         <dd>
-            <span>{{vm.blood_pressure.date | date:'mediumDate'}}</span>
+            <span>{{vm.bloodPressure.date | date:'mediumDate'}}</span>
         </dd>
-        <dt><span data-translate="21PointsApp.blood_pressure.systolic">Systolic</span></dt>
+        <dt><span data-translate="21PointsApp.bloodPressure.systolic">Systolic</span></dt>
         <dd>
-            <span>{{vm.blood_pressure.systolic}}</span>
+            <span>{{vm.bloodPressure.systolic}}</span>
         </dd>
-        <dt><span data-translate="21PointsApp.blood_pressure.diastolic">Diastolic</span></dt>
+        <dt><span data-translate="21PointsApp.bloodPressure.diastolic">Diastolic</span></dt>
         <dd>
-            <span>{{vm.blood_pressure.diastolic}}</span>
+            <span>{{vm.bloodPressure.diastolic}}</span>
         </dd>
-        <dt><span data-translate="21PointsApp.blood_pressure.user">User</span></dt>
+        <dt><span data-translate="21PointsApp.bloodPressure.user">User</span></dt>
         <dd>
-            {{vm.blood_pressure.user.login}}
+            {{vm.bloodPressure.user.login}}
         </dd>
     </dl>
 
@@ -28,7 +28,7 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="blood-pressure-detail.edit({id:vm.blood_pressure.id})" class="btn btn-primary">
+    <button type="button" ui-sref="blood-pressure-detail.edit({id:vm.bloodPressure.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>

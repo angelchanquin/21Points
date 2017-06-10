@@ -24,7 +24,7 @@ describe('BloodPressure e2e test', function () {
         entityMenu.click();
         element.all(by.css('[ui-sref="blood-pressure"]')).first().click().then(function() {
             element.all(by.css('h2')).first().getAttribute('data-translate').then(function (value) {
-                expect(value).toMatch(/21PointsApp.blood_pressure.home.title/);
+                expect(value).toMatch(/21PointsApp.bloodPressure.home.title/);
             });
         });
     });
@@ -32,7 +32,7 @@ describe('BloodPressure e2e test', function () {
     it('should load create BloodPressure dialog', function () {
         element(by.css('[ui-sref="blood-pressure.new"]')).click().then(function() {
             element(by.css('h4.modal-title')).getAttribute('data-translate').then(function (value) {
-                expect(value).toMatch(/21PointsApp.blood_pressure.home.createOrEditLabel/);
+                expect(value).toMatch(/21PointsApp.bloodPressure.home.createOrEditLabel/);
             });
             element(by.css('button.close')).click();
         });

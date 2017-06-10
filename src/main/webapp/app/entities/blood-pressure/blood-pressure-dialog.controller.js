@@ -10,7 +10,7 @@
     function BloodPressureDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, BloodPressure, User) {
         var vm = this;
 
-        vm.blood_pressure = entity;
+        vm.bloodPressure = entity;
         vm.clear = clear;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
@@ -27,15 +27,15 @@
 
         function save () {
             vm.isSaving = true;
-            if (vm.blood_pressure.id !== null) {
-                BloodPressure.update(vm.blood_pressure, onSaveSuccess, onSaveError);
+            if (vm.bloodPressure.id !== null) {
+                BloodPressure.update(vm.bloodPressure, onSaveSuccess, onSaveError);
             } else {
-                BloodPressure.save(vm.blood_pressure, onSaveSuccess, onSaveError);
+                BloodPressure.save(vm.bloodPressure, onSaveSuccess, onSaveError);
             }
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('21PointsApp:blood_pressureUpdate', result);
+            $scope.$emit('21PointsApp:bloodPressureUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

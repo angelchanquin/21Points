@@ -11,7 +11,7 @@
 
         var vm = this;
 
-        vm.blood_pressures = [];
+        vm.bloodPressures = [];
         vm.loadPage = loadPage;
         vm.itemsPerPage = paginationConstants.itemsPerPage;
         vm.page = 0;
@@ -54,7 +54,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 for (var i = 0; i < data.length; i++) {
-                    vm.blood_pressures.push(data[i]);
+                    vm.bloodPressures.push(data[i]);
                 }
             }
 
@@ -65,7 +65,7 @@
 
         function reset () {
             vm.page = 0;
-            vm.blood_pressures = [];
+            vm.bloodPressures = [];
             loadAll();
         }
 
@@ -75,7 +75,7 @@
         }
 
         function clear () {
-            vm.blood_pressures = [];
+            vm.bloodPressures = [];
             vm.links = {
                 last: 0
             };
@@ -91,7 +91,7 @@
             if (!searchQuery){
                 return vm.clear();
             }
-            vm.blood_pressures = [];
+            vm.bloodPressures = [];
             vm.links = {
                 last: 0
             };

@@ -16,7 +16,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "blood_pressure")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Document(indexName = "blood_pressure")
+@Document(indexName = "bloodPressure")
 public class BloodPressure implements Serializable {
 
     private static final long serialVersionUID = 1L;
