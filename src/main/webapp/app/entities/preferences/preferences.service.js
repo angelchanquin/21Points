@@ -20,7 +20,8 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'user' : { method: 'GET' , isArray: false, url: 'api/my-preferences'}
         });
     }
 })();

@@ -5,6 +5,7 @@ import com.jhipster.health.domain.Preferences;
 
 import com.jhipster.health.repository.PreferencesRepository;
 import com.jhipster.health.repository.search.PreferencesSearchRepository;
+import com.jhipster.health.security.SecurityUtils;
 import com.jhipster.health.web.rest.util.HeaderUtil;
 import com.jhipster.health.web.rest.util.PaginationUtil;
 import io.swagger.annotations.ApiParam;
@@ -38,7 +39,7 @@ public class PreferencesResource {
     private final Logger log = LoggerFactory.getLogger(PreferencesResource.class);
 
     private static final String ENTITY_NAME = "preferences";
-        
+
     private final PreferencesRepository preferencesRepository;
 
     private final PreferencesSearchRepository preferencesSearchRepository;
@@ -140,7 +141,7 @@ public class PreferencesResource {
      * SEARCH  /_search/preferences?query=:query : search for the preferences corresponding
      * to the query.
      *
-     * @param query the query of the preferences search 
+     * @param query the query of the preferences search
      * @param pageable the pagination information
      * @return the result of the search
      */
@@ -153,5 +154,25 @@ public class PreferencesResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    /**
+     * MY-PREFERENCES
+     */
+    @GetMapping("/my-preferences")
+    @Timed
+    public ResponseEntity<Preferences> getUserPreferences() {
+        String username = SecurityUtils.getCurrentUserLogin();
+
+        log.debug("REST request to get Preferences : {}", username);
+
+        Optional<Preferences> preferences = preferencesRepository.findOneByUserLogin(username);
+
+        if (preferences.isPresent()) {
+            return new ResponseEntity<Preferences>(preferences.get(), HttpStatus.OK);
+        } else {
+            Preferences defaultPreferences = new Preferences();
+            defaultPreferences.setWeekly_goal(10);
+            return new ResponseEntity<Preferences>(defaultPreferences, HttpStatus.OK);
+        }
+    }
 
 }

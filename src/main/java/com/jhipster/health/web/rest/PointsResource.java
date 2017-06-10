@@ -9,6 +9,7 @@ import com.jhipster.health.security.AuthoritiesConstants;
 import com.jhipster.health.security.SecurityUtils;
 import com.jhipster.health.web.rest.util.HeaderUtil;
 import com.jhipster.health.web.rest.util.PaginationUtil;
+import com.jhipster.health.web.rest.vm.PointsPerWeek;
 import io.github.jhipster.web.util.ResponseUtil;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -167,5 +170,28 @@ public class PointsResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
+    /**
+     * Get all points for the current week.
+     */
+    @GetMapping("/points/week")
+    @Timed
+    public ResponseEntity<PointsPerWeek> getPointsOfThisWeek() {
+        LocalDate now = LocalDate.now();
+        LocalDate startOfWeek = now.with(DayOfWeek.MONDAY);
+        LocalDate endOfWeek = now.with(DayOfWeek.SUNDAY);
 
+        log.debug("Looking for points between: {} and {}", startOfWeek, endOfWeek);
+
+        List<Points> points = pointsRepository.findAllByDateBetween(startOfWeek, endOfWeek);
+
+        Integer numPoints = points.stream()
+            .filter(p -> p.getUser().getLogin().equals(SecurityUtils.getCurrentUserLogin()))
+            .mapToInt(p -> p.getExercise() + p.getMeals() + p.getAlcohol())
+            .sum();
+
+        PointsPerWeek pointsPerWeek = new PointsPerWeek(startOfWeek, numPoints);
+
+        return new ResponseEntity<>(pointsPerWeek, HttpStatus.OK);
+
+    }
 }

@@ -36,6 +36,11 @@
                     copy.date = DateUtils.convertLocalDateToServer(copy.date);
                     return angular.toJson(copy);
                 }
+            },
+            'week': {
+                method: 'GET',
+                isArray: false,
+                url: 'api/points/week'
             }
         });
     }

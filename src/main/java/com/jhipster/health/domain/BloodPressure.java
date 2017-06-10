@@ -11,13 +11,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * A Blood_pressure.
+ * A BloodPressure.
  */
 @Entity
 @Table(name = "blood_pressure")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Document(indexName = "blood_pressure")
-public class Blood_pressure implements Serializable {
+public class BloodPressure implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -53,7 +53,7 @@ public class Blood_pressure implements Serializable {
         return date;
     }
 
-    public Blood_pressure date(LocalDate date) {
+    public BloodPressure date(LocalDate date) {
         this.date = date;
         return this;
     }
@@ -66,7 +66,7 @@ public class Blood_pressure implements Serializable {
         return systolic;
     }
 
-    public Blood_pressure systolic(String systolic) {
+    public BloodPressure systolic(String systolic) {
         this.systolic = systolic;
         return this;
     }
@@ -79,7 +79,7 @@ public class Blood_pressure implements Serializable {
         return diastolic;
     }
 
-    public Blood_pressure diastolic(String diastolic) {
+    public BloodPressure diastolic(String diastolic) {
         this.diastolic = diastolic;
         return this;
     }
@@ -92,7 +92,7 @@ public class Blood_pressure implements Serializable {
         return user;
     }
 
-    public Blood_pressure user(User user) {
+    public BloodPressure user(User user) {
         this.user = user;
         return this;
     }
@@ -109,11 +109,11 @@ public class Blood_pressure implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Blood_pressure blood_pressure = (Blood_pressure) o;
-        if (blood_pressure.id == null || id == null) {
+        BloodPressure BloodPresure = (BloodPressure) o;
+        if (BloodPresure.id == null || id == null) {
             return false;
         }
-        return Objects.equals(id, blood_pressure.id);
+        return Objects.equals(id, BloodPresure.id);
     }
 
     @Override
@@ -123,7 +123,7 @@ public class Blood_pressure implements Serializable {
 
     @Override
     public String toString() {
-        return "Blood_pressure{" +
+        return "BloodPressure{" +
             "id=" + id +
             ", date='" + date + "'" +
             ", systolic='" + systolic + "'" +
