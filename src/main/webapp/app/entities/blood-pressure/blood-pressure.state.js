@@ -19,7 +19,7 @@
             views: {
                 'content@': {
                     templateUrl: 'app/entities/blood-pressure/blood-pressures.html',
-                    controller: 'Blood_pressureController',
+                    controller: 'BloodPressureController',
                     controllerAs: 'vm'
                 }
             },
@@ -41,7 +41,7 @@
             views: {
                 'content@': {
                     templateUrl: 'app/entities/blood-pressure/blood-pressure-detail.html',
-                    controller: 'Blood_pressureDetailController',
+                    controller: 'BloodPressureDetailController',
                     controllerAs: 'vm'
                 }
             },
@@ -50,8 +50,8 @@
                     $translatePartialLoader.addPart('blood_pressure');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Blood_pressure', function($stateParams, Blood_pressure) {
-                    return Blood_pressure.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'BloodPressure', function($stateParams, BloodPressure) {
+                    return BloodPressure.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
@@ -72,13 +72,13 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/blood-pressure/blood-pressure-dialog.html',
-                    controller: 'Blood_pressureDialogController',
+                    controller: 'BloodPressureDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Blood_pressure', function(Blood_pressure) {
-                            return Blood_pressure.get({id : $stateParams.id}).$promise;
+                        entity: ['BloodPressure', function(BloodPressure) {
+                            return BloodPressure.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -97,7 +97,7 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/blood-pressure/blood-pressure-dialog.html',
-                    controller: 'Blood_pressureDialogController',
+                    controller: 'BloodPressureDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
@@ -127,13 +127,13 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/blood-pressure/blood-pressure-dialog.html',
-                    controller: 'Blood_pressureDialogController',
+                    controller: 'BloodPressureDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Blood_pressure', function(Blood_pressure) {
-                            return Blood_pressure.get({id : $stateParams.id}).$promise;
+                        entity: ['BloodPressure', function(BloodPressure) {
+                            return BloodPressure.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -152,12 +152,12 @@
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/blood-pressure/blood-pressure-delete-dialog.html',
-                    controller: 'Blood_pressureDeleteController',
+                    controller: 'BloodPressureDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Blood_pressure', function(Blood_pressure) {
-                            return Blood_pressure.get({id : $stateParams.id}).$promise;
+                        entity: ['BloodPressure', function(BloodPressure) {
+                            return BloodPressure.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {

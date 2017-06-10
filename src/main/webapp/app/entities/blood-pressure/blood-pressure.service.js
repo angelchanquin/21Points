@@ -2,11 +2,11 @@
     'use strict';
     angular
         .module('21PointsApp')
-        .factory('Blood_pressure', Blood_pressure);
+        .factory('BloodPressure', BloodPressure);
 
-    Blood_pressure.$inject = ['$resource', 'DateUtils'];
+    BloodPressure.$inject = ['$resource', 'DateUtils'];
 
-    function Blood_pressure ($resource, DateUtils) {
+    function BloodPressure ($resource, DateUtils) {
         var resourceUrl =  'api/blood-pressures/:id';
 
         return $resource(resourceUrl, {}, {

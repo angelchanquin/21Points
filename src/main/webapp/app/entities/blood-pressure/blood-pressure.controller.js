@@ -3,11 +3,11 @@
 
     angular
         .module('21PointsApp')
-        .controller('Blood_pressureController', Blood_pressureController);
+        .controller('BloodPressureController', BloodPressureController);
 
-    Blood_pressureController.$inject = ['Blood_pressure', 'Blood_pressureSearch', 'ParseLinks', 'AlertService', 'paginationConstants'];
+    BloodPressureController.$inject = ['BloodPressure', 'BloodPressureSearch', 'ParseLinks', 'AlertService', 'paginationConstants'];
 
-    function Blood_pressureController(Blood_pressure, Blood_pressureSearch, ParseLinks, AlertService, paginationConstants) {
+    function BloodPressureController(BloodPressure, BloodPressureSearch, ParseLinks, AlertService, paginationConstants) {
 
         var vm = this;
 
@@ -29,14 +29,14 @@
 
         function loadAll () {
             if (vm.currentSearch) {
-                Blood_pressureSearch.query({
+                BloodPressureSearch.query({
                     query: vm.currentSearch,
                     page: vm.page,
                     size: vm.itemsPerPage,
                     sort: sort()
                 }, onSuccess, onError);
             } else {
-                Blood_pressure.query({
+                BloodPressure.query({
                     page: vm.page,
                     size: vm.itemsPerPage,
                     sort: sort()

@@ -36,6 +36,6 @@
     "changelogDate": "20170606170954",
     "dto": "no",
     "service": "no",
-    "entityTableName": "blood_pressure",
+    "entityTableName": "blood_Pressure",
     "pagination": "infinite-scroll"
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Blood_pressure e2e test', function () {
+describe('BloodPressure e2e test', function () {
 
     var username = element(by.id('username'));
     var password = element(by.id('password'));
@@ -20,7 +20,7 @@ describe('Blood_pressure e2e test', function () {
         element(by.css('button[type=submit]')).click();
     });
 
-    it('should load Blood_pressures', function () {
+    it('should load BloodPressures', function () {
         entityMenu.click();
         element.all(by.css('[ui-sref="blood-pressure"]')).first().click().then(function() {
             element.all(by.css('h2')).first().getAttribute('data-translate').then(function (value) {
@@ -29,7 +29,7 @@ describe('Blood_pressure e2e test', function () {
         });
     });
 
-    it('should load create Blood_pressure dialog', function () {
+    it('should load create BloodPressure dialog', function () {
         element(by.css('[ui-sref="blood-pressure.new"]')).click().then(function() {
             element(by.css('h4.modal-title')).getAttribute('data-translate').then(function (value) {
                 expect(value).toMatch(/21PointsApp.blood_pressure.home.createOrEditLabel/);

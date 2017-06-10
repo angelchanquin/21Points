@@ -3,11 +3,11 @@
 
     angular
         .module('21PointsApp')
-        .controller('Blood_pressureDeleteController',Blood_pressureDeleteController);
+        .controller('BloodPressureDeleteController',BloodPressureDeleteController);
 
-    Blood_pressureDeleteController.$inject = ['$uibModalInstance', 'entity', 'Blood_pressure'];
+    BloodPressureDeleteController.$inject = ['$uibModalInstance', 'entity', 'BloodPressure'];
 
-    function Blood_pressureDeleteController($uibModalInstance, entity, Blood_pressure) {
+    function BloodPressureDeleteController($uibModalInstance, entity, BloodPressure) {
         var vm = this;
 
         vm.blood_pressure = entity;
@@ -19,7 +19,7 @@
         }
 
         function confirmDelete (id) {
-            Blood_pressure.delete({id: id},
+            BloodPressure.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

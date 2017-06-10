@@ -3,11 +3,11 @@
 
     angular
         .module('21PointsApp')
-        .factory('Blood_pressureSearch', Blood_pressureSearch);
+        .factory('BloodPressureSearch', BloodPressureSearch);
 
-    Blood_pressureSearch.$inject = ['$resource'];
+    BloodPressureSearch.$inject = ['$resource'];
 
-    function Blood_pressureSearch($resource) {
+    function BloodPressureSearch($resource) {
         var resourceUrl =  'api/_search/blood-pressures/:id';
 
         return $resource(resourceUrl, {}, {

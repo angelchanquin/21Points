@@ -3,11 +3,11 @@
 
     angular
         .module('21PointsApp')
-        .controller('Blood_pressureDialogController', Blood_pressureDialogController);
+        .controller('BloodPressureDialogController', BloodPressureDialogController);
 
-    Blood_pressureDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Blood_pressure', 'User'];
+    BloodPressureDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'BloodPressure', 'User'];
 
-    function Blood_pressureDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Blood_pressure, User) {
+    function BloodPressureDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, BloodPressure, User) {
         var vm = this;
 
         vm.blood_pressure = entity;
@@ -28,9 +28,9 @@
         function save () {
             vm.isSaving = true;
             if (vm.blood_pressure.id !== null) {
-                Blood_pressure.update(vm.blood_pressure, onSaveSuccess, onSaveError);
+                BloodPressure.update(vm.blood_pressure, onSaveSuccess, onSaveError);
             } else {
-                Blood_pressure.save(vm.blood_pressure, onSaveSuccess, onSaveError);
+                BloodPressure.save(vm.blood_pressure, onSaveSuccess, onSaveError);
             }
         }
 

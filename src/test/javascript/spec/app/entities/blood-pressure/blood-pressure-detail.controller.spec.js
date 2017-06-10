@@ -2,9 +2,9 @@
 
 describe('Controller Tests', function() {
 
-    describe('Blood_pressure Management Detail Controller', function() {
+    describe('BloodPressure Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockPreviousState, MockBlood_pressure, MockUser;
+        var MockEntity, MockPreviousState, MockBloodPressure, MockUser;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,7 +12,7 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockPreviousState = jasmine.createSpy('MockPreviousState');
-            MockBlood_pressure = jasmine.createSpy('MockBlood_pressure');
+            MockBloodPressure = jasmine.createSpy('MockBloodPressure');
             MockUser = jasmine.createSpy('MockUser');
             
 
@@ -21,11 +21,11 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity,
                 'previousState': MockPreviousState,
-                'Blood_pressure': MockBlood_pressure,
+                'BloodPressure': MockBloodPressure,
                 'User': MockUser
             };
             createController = function() {
-                $injector.get('$controller')("Blood_pressureDetailController", locals);
+                $injector.get('$controller')("BloodPressureDetailController", locals);
             };
         }));
 
